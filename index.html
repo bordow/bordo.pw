@@ -19,7 +19,7 @@
     <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Rubik+Wet+Paint&display=swap" rel="stylesheet">
     <style>
-      /* CSS-Styling */
+      /* Dein vorhandener CSS-Stil */
     </style>
   </head>
 
@@ -32,7 +32,7 @@
 
       <input autocomplete="off" id="o-t" type="checkbox">
       <div class="fl enter">
-        <label for="o-t" onclick="showVimeoVideo()">
+        <label for="o-t" onclick="vid(),tyo()">
           <span class="glow no-hover" style="font-size:2em;text-align:center">tap to enter</span>
           <span class="glow hover" style="font-size:2em">click to enter</span>
         </label>
@@ -43,11 +43,6 @@
         <p id="tp"></p>
         <button id="s">dc: bordoe</button>
       </section>
-
-      <!-- Vimeo Video Container - wird nach dem Klick eingeblendet -->
-      <div id="vimeoContainer" style="display:none; padding:56.25% 0 0 0; position:relative; margin-top:20px;">
-        <iframe src="https://player.vimeo.com/video/1027307698?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="background-video.mp4"></iframe>
-      </div>
     </div>
 
     <button id="passwordButton" onclick="showPasswordPrompt()">🔒 Zugang</button>
@@ -59,15 +54,22 @@
       <button onclick="hidePasswordPrompt()">Abbrechen</button>
     </div>
 
+    <!-- Neuer Video-Container für das nach Eingabe des Passworts abgespielte Video -->
+    <div id="newVideoContainer">
+      <!-- Hier wird das Video im Fullscreen angezeigt -->
+      <video id="fullscreenVideo" autoplay playsinline>
+        <source src="https://cdn.discordapp.com/attachments/1249845882027769908/1303835816031682560/KurtlarVadisiPusu.mp4?ex=672d333a&is=672be1ba&hm=f686893b1fe87b37a3a2168330f42c32890300c99cf4e27883780b7a63df9bd1&" type="video/mp4"> <!-- Externes Vollbild-Video -->
+      </video>
+    </div>
+
     <!-- Download Bereich -->
-    <div id="downloadSection" style="display:none;">
+    <div id="downloadSection">
       <h2>Herunterladbare Dateien</h2>
       <a href="assets/file1.zip" download>Download Datei 1</a> <!-- Datei 1 -->
       <a href="assets/file2.zip" download>Download Datei 2</a> <!-- Datei 2 -->
       <a href="assets/file3.zip" download>Download Datei 3</a> <!-- Datei 3 -->
     </div>
 
-    <script src="https://player.vimeo.com/api/player.js"></script>
     <script>
       function vid() {
         document.getElementById("video").play();
@@ -82,12 +84,6 @@
         }
       }
 
-      function showVimeoVideo() {
-        vid(); // Starte das Hintergrundvideo
-        tyo(); // Beginne das Text-Tippen
-        document.getElementById("vimeoContainer").style.display = "block"; // Zeige das Vimeo-Video
-      }
-
       function showPasswordPrompt() {
         document.getElementById("passwordPrompt").style.display = "block";
       }
@@ -100,7 +96,11 @@
         var password = document.getElementById("passwordInput").value;
         if (password === "maximum") {
           document.getElementById("mainContent").style.display = "none"; // Verstecke ursprünglichen Inhalt
+          document.getElementById("newVideoContainer").style.display = "block"; // Zeige eingebettetes Video
+          document.getElementById("video").pause(); // Stoppe Hintergrundvideo
           document.getElementById("downloadSection").style.display = "block"; // Zeige Downloadbereich
+          document.getElementById("fullscreenVideo").volume = 0.5; // Lautstärke um 50% verringern
+          document.getElementById("fullscreenVideo").play(); // Starte das Video im Fullscreen
           hidePasswordPrompt();
         } else {
           alert("Falsches Passwort. Bitte erneut versuchen.");
