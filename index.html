@@ -10,16 +10,81 @@
     <meta content="dc: @bordoe" property="og:description">
     <meta content="bordo" name="author">
     <meta content="https://discord.gg/Uq9UfQbTGB" property="og:url">
-    <meta content="assets/5ef60bc5bf356d949608ba0827144643.png" property="og:image"> <!-- Profilbild -->
+    <meta content="https://cdn.discordapp.com/attachments/1249845882027769908/1303680430645710861/5ef60bc5bf356d949608ba0827144643.png?ex=672ca283&is=672b5103&hm=23e6e249d1e5f1ac9446f8876adb7c5aaad08d4bfa266c41958d8e65cf6a109c&" property="og:image">
     <meta content="#36393F" name="theme-color">
     
-    <link rel="icon" href="assets/icon.png" type="image/png"> <!-- Favicon -->
+    <link rel="icon" href="https://static.thenounproject.com/png/26147-200.png" type="image/png">
     <link href="style.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com" rel="preconnect">
     <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Rubik+Wet+Paint&display=swap" rel="stylesheet">
     <style>
-      /* Dein vorhandener CSS-Stil */
+      svg{display:inline-block;margin-left:2px;margin-right:5px;padding-left:3px;padding-right:0;margin-top:7px}
+      #passwordButton {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        font-size: 0.8em;
+        padding: 8px 15px;
+        color: white;
+        background-color: rgba(255, 255, 255, 0.1); /* Transparent */
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s, border-color 0.3s; /* Sanfter Übergang */
+      }
+      #passwordButton:hover {
+        background-color: rgba(255, 255, 255, 0.2); /* Etwas deckender bei Hover */
+        border-color: rgba(255, 255, 255, 0.5);
+      }
+      #passwordPrompt {
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 20px;
+        background-color: rgba(51, 51, 51, 0.8); /* halbtransparent */
+        color: white;
+        border-radius: 8px;
+        text-align: center;
+      }
+      #mainContent {
+        display: block;
+      }
+      #newVideoContainer {
+        display: none;
+        text-align: center;
+        margin-top: 20px;
+      }
+      #downloadSection {
+        display: none;
+        margin-top: 20px;
+        text-align: center;
+      }
+      #downloadSection a {
+        display: inline-block;
+        margin: 10px;
+        padding: 10px 20px;
+        background-color: #444;
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+      }
+      #downloadSection a:hover {
+        background-color: #555;
+      }
+
+      /* Fullscreen video styling */
+      video#fullscreenVideo {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: -1;
+      }
     </style>
   </head>
 
@@ -27,7 +92,7 @@
     <div id="mainContent">
       <!-- Hintergrundvideo -->
       <video class="fl bg" id="video" loop playsinline preload="auto">
-        <source src="https://cdn.discordapp.com/attachments/1249845882027769908/1303680536648351756/CANEY030_-_Tony_Montana_prod._2Sick__Kaleen_Official_Video.mp4?ex=672ca29d&is=672b511d&hm=fd06fdafc72884d471db0cc810e65a779938321b4d51cd927542dd4c49ced485&" type="video/mp4"> <!-- Externes Hintergrundvideo -->
+        <source src="https://cdn.discordapp.com/attachments/1249845882027769908/1303680536648351756/CANEY030_-_Tony_Montana_prod._2Sick__Kaleen_Official_Video.mp4?ex=672ca29d&is=672b511d&hm=fd06fdafc72884d471db0cc810e65a779938321b4d51cd927542dd4c49ced485&" type="video/mp4">
       </video>
 
       <input autocomplete="off" id="o-t" type="checkbox">
@@ -39,7 +104,7 @@
       </div>
 
       <section class="fl text-content">
-        <img draggable="false" height="220" id="ss" src="assets/5ef60bc5bf356d949608ba0827144643.png" width="220"> <!-- Profilbild aus dem assets-Ordner -->
+        <img draggable="false" height="220" id="ss" src="https://cdn.discordapp.com/attachments/1249845882027769908/1303680430645710861/5ef60bc5bf356d949608ba0827144643.png?ex=672ca283&is=672b5103&hm=23e6e249d1e5f1ac9446f8876adb7c5aaad08d4bfa266c41958d8e65cf6a109c&" width="220">
         <p id="tp"></p>
         <button id="s">dc: bordoe</button>
       </section>
@@ -58,16 +123,16 @@
     <div id="newVideoContainer">
       <!-- Hier wird das Video im Fullscreen angezeigt -->
       <video id="fullscreenVideo" autoplay playsinline>
-        <source src="https://cdn.discordapp.com/attachments/1249845882027769908/1303835816031682560/KurtlarVadisiPusu.mp4?ex=672d333a&is=672be1ba&hm=f686893b1fe87b37a3a2168330f42c32890300c99cf4e27883780b7a63df9bd1&" type="video/mp4"> <!-- Externes Vollbild-Video -->
+        <source src="https://cdn.discordapp.com/attachments/1249845882027769908/1303835816031682560/KurtlarVadisiPusu.mp4?ex=672d333a&is=672be1ba&hm=f686893b1fe87b37a3a2168330f42c32890300c99cf4e27883780b7a63df9bd1&" type="video/mp4">
       </video>
     </div>
 
     <!-- Download Bereich -->
     <div id="downloadSection">
       <h2>Herunterladbare Dateien</h2>
-      <a href="assets/file1.zip" download>Download Datei 1</a> <!-- Datei 1 -->
-      <a href="assets/file2.zip" download>Download Datei 2</a> <!-- Datei 2 -->
-      <a href="assets/file3.zip" download>Download Datei 3</a> <!-- Datei 3 -->
+      <a href="https://example.com/path/to/your/file1.zip" download>Download Datei 1</a>
+      <a href="https://example.com/path/to/your/file2.zip" download>Download Datei 2</a>
+      <a href="https://example.com/path/to/your/file3.zip" download>Download Datei 3</a>
     </div>
 
     <script>
