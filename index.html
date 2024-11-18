@@ -4,64 +4,49 @@
     <meta charset="UTF-8">
     <meta content="IE=edge" http-equiv="X-UA-Compatible">
     <meta content="width=device-width,initial-scale=1" name="viewport">
-    <title>bordo</title>
+    <title>bordo;</title>
     <meta content="website" property="og:type">
     <meta content="bordo" property="og:title">
     <meta content="dc: @bordoe" property="og:description">
     <meta content="bordo" name="author">
-    <meta content="https://cdn.discordapp.com/attachments/1249845882027769908/1308136636550483968/5ef60bc5bf356d949608ba0827144643.png" property="og:url">
+    <meta content="https://discord.gg/Uq9UfQbTGB" property="og:url">
     <meta content="https://cdn.discordapp.com/attachments/1249845882027769908/1308136636550483968/5ef60bc5bf356d949608ba0827144643.png" property="og:image">
     <meta content="#36393F" name="theme-color">
     
-    <!-- Tab Icon -->
-    <link rel="icon" href="https://cdn.discordapp.com/attachments/1249845882027769908/1308136636550483968/5ef60bc5bf356d949608ba0827144643.png" type="image/png">
+    <link rel="icon" href="https://static.thenounproject.com/png/26147-200.png" type="image/png">
 
-    <!-- Styles and Fonts -->
-    <link href="./bordo_files/style.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com" rel="preconnect">
     <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-    <link href="./bordo_files/css2" rel="stylesheet">
-    <style>
-      svg {
-        display: inline-block;
-        margin-left: 2px;
-        margin-right: 5px;
-        padding-left: 3px;
-        padding-right: 0;
-        margin-top: 7px;
-      }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik+Wet+Paint&display=swap" rel="stylesheet">
+    <style>svg{display:inline-block;margin-left:2px;margin-right:5px;padding-left:3px;padding-right:0;margin-top:7px}</style>
   </head>
 
   <body>
-    <!-- Background Video -->
     <video class="fl bg" id="video" loop playsinline preload="auto">
-      <source src="4gegenbeat feat. Yungpepsi, BigBax - Moncler Maya (Official Video).mp4">
+      <source src="https://cdn.discordapp.com/attachments/1249845882027769908/1308136728107815064/SHABAB__BERDO__VOLO__KARDO__KURDO__AK_AUSSERKONTROLLE_-_HARBI_KURDI.mp4?ex=673cd8c3&is=673b8743&hm=31371707985ac9b0ccb52bba6d5948480d0f3cde28edb2634620fa8cd1c565d1&" type="video/mp4">
     </video>
 
-    <!-- Tap to Enter -->
     <input autocomplete="off" id="o-t" type="checkbox">
     <div class="fl enter">
-      <label for="o-t" onclick="vid(), tyo()">
-        <span class="glow no-hover" style="font-size:1em;text-align:center">tap to enter</span>
-        <span class="glow hover" style="font-size:1em">click to enter</span>
+      <label for="o-t" onclick="vid(),tyo()">
+        <span class="glow no-hover" style="font-size:2em;text-align:center">tap to enter</span>
+        <span class="glow hover" style="font-size:2em">click to enter</span>
       </label>
     </div>
 
-    <!-- Content Section -->
     <section class="fl text-content">
-      <img draggable="false" height="220" id="ss" src="bordo.png" width="220">
+      <img draggable="false" height="220" id="ss" src="https://cdn.discordapp.com/attachments/1249845882027769908/1308136636550483968/5ef60bc5bf356d949608ba0827144643.png" width="220">
       <p id="tp"></p>
-      <button id="s">bordo</button>
     </section>
 
-    <!-- Scripts -->
     <script>
       function vid() {
         document.getElementById("video").play();
       }
-
-      var i = 0, txt = "@bordoe", speed = 150;
+    </script>
+    <script>
+      var i = 0, txt = "bordo", speed = 150;
       function tyo() {
         if (i < txt.length) {
           document.getElementById("tp").innerHTML += txt.charAt(i);
